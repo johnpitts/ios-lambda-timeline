@@ -15,6 +15,8 @@ enum MediaType: String {
 
 class Post {
     
+    // INITIALIZERS:
+    
     init(title: String, mediaURL: URL, ratio: CGFloat? = nil, author: Author, timestamp: Date = Date()) {
         self.mediaURL = mediaURL
         self.ratio = ratio
@@ -42,6 +44,9 @@ class Post {
         self.comments = captionDictionaries.compactMap({ Comment(dictionary: $0) })
         self.id = id
     }
+    
+    
+    //PROPERTIES of Post
     
     var dictionaryRepresentation: [String : Any] {
         var dict: [String: Any] = [Post.mediaKey: mediaURL.absoluteString,
