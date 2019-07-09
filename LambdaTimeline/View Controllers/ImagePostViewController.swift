@@ -107,7 +107,7 @@ class ImagePostViewController: ShiftableViewController {
         present(imagePicker, animated: true, completion: nil)
     }
     
-    @IBAction func tonalButtonTapped(_ sender: Any) {
+    @IBAction func tonalButtonTapped(_ sender: Any) {   //should probably be a toggle not a button
         
         guard let image = imageView.image,
         let filterPETonal = CIFilter(name: "CIPhotoEffectTonal") else { return }  // might want a print statement in the else here
@@ -125,9 +125,9 @@ class ImagePostViewController: ShiftableViewController {
         guard let cgImage = image.flattened.cgImage else { return image }
         let ciImage = CIImage(cgImage: cgImage)
         
-        filter?.setValue(ciImage, forKey: "inputImage")  // key MUST match the API, so refer to developer.apple Core Image
+        filter.setValue(ciImage, forKey: "inputImage")  // key MUST match the API, so refer to developer.apple Core Image
         
-        guard let outputCIImage = filter?.outputImage else { return image }
+        guard let outputCIImage = filter.outputImage else { return image }
         
         // render the image
         guard let outputCGImage = context.createCGImage(outputCIImage, from: outputCIImage.extent) else { return image }
