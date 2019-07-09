@@ -228,6 +228,9 @@
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ar8-o7-oWq">
                                                         <rect key="frame" x="261" y="0.0" width="84" height="30"/>
                                                         <state key="normal" title="P.E. Chrome"/>
+                                                        <connections>
+                                                            <action selector="chromeButtonTapped:" destination="1Aw-4e-BW2" eventType="touchUpInside" id="bhc-We-TnV"/>
+                                                        </connections>
                                                     </button>
                                                 </subviews>
                                             </stackView>

@@ -115,8 +115,16 @@ class ImagePostViewController: ShiftableViewController {
         originalImage = imageRender(byFiltering: image, with: filterPETonal)
         
         //updateImage() doesn't need to be called bc originalImage is a property observer which calls updateImage()
-
     }
+    
+    @IBAction func chromeButtonTapped(_ sender: Any) {
+        
+        guard let image = imageView.image,
+            let filterPEChrome = CIFilter(name: "CIPhotoEffectChrome") else { return }
+        originalImage = imageRender(byFiltering: image, with: filterPEChrome)
+        
+    }
+    
     
     
     private func imageRender(byFiltering image: UIImage, with filter: CIFilter) -> UIImage {
