@@ -10,6 +10,18 @@ import UIKit
 
 class ImagePostDetailTableViewController: UITableViewController {
     
+    @IBOutlet weak var recordButton: UIButton!
+    @IBOutlet weak var cancelButton: UIButton!
+    @IBOutlet weak var postButton: UIButton!
+    @IBOutlet weak var imageView: UIImageView!
+    @IBOutlet weak var titleLabel: UILabel!
+    @IBOutlet weak var authorLabel: UILabel!
+    @IBOutlet weak var imageViewAspectRatioConstraint: NSLayoutConstraint!
+    
+    var post: Post!
+    var postController: PostController!
+    var imageData: Data?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         updateViews()
@@ -74,15 +86,4 @@ class ImagePostDetailTableViewController: UITableViewController {
         
         return cell
     }
-    
-    var post: Post!
-    var postController: PostController!
-    var imageData: Data?
-    
-    
-    
-    @IBOutlet weak var imageView: UIImageView!
-    @IBOutlet weak var titleLabel: UILabel!
-    @IBOutlet weak var authorLabel: UILabel!
-    @IBOutlet weak var imageViewAspectRatioConstraint: NSLayoutConstraint!
 }

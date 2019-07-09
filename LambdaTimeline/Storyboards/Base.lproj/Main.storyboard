@@ -386,6 +386,48 @@
                                 <constraint firstItem="du3-3a-NOA" firstAttribute="top" secondItem="hJv-Sf-vzU" secondAttribute="top" constant="2" id="xQd-UK-Bmn"/>
                             </constraints>
                         </view>
+                        <view key="tableFooterView" contentMode="scaleToFill" id="CQn-QS-YoJ">
+                            <rect key="frame" x="0.0" y="177" width="375" height="48"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <subviews>
+                                <stackView opaque="NO" contentMode="scaleToFill" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="4di-Em-dT4">
+                                    <rect key="frame" x="0.0" y="18" width="375" height="30"/>
+                                    <subviews>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nfI-HL-Jpe">
+                                            <rect key="frame" x="0.0" y="0.0" width="61" height="30"/>
+                                            <state key="normal" title="RECORD"/>
+                                        </button>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7EI-gd-v6Q">
+                                            <rect key="frame" x="69" y="0.0" width="45" height="30"/>
+                                            <state key="normal" title="cancel">
+                                                <color key="titleColor" red="0.88821648320000002" green="0.32062744069999999" blue="0.31437832110000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                            </state>
+                                        </button>
+                                        <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jjX-Nl-WRJ">
+                                            <rect key="frame" x="122" y="0.0" width="253" height="30"/>
+                                            <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="15"/>
+                                            <state key="normal" title="POST">
+                                                <color key="titleColor" red="0.246068645" green="0.68573416099999995" blue="0.23669699199999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                            </state>
+                                        </button>
+                                    </subviews>
+                                </stackView>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Record an audio comment!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Z9T-ly-3WD">
+                                    <rect key="frame" x="0.0" y="0.0" width="205.5" height="20.5"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                    <nil key="textColor"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                            </subviews>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <constraints>
+                                <constraint firstItem="Z9T-ly-3WD" firstAttribute="top" secondItem="CQn-QS-YoJ" secondAttribute="top" id="2qJ-sv-r5D"/>
+                                <constraint firstItem="Z9T-ly-3WD" firstAttribute="leading" secondItem="CQn-QS-YoJ" secondAttribute="leading" id="FOi-z2-s6U"/>
+                                <constraint firstAttribute="trailing" secondItem="4di-Em-dT4" secondAttribute="trailing" id="KHT-hk-EQm"/>
+                                <constraint firstAttribute="bottom" secondItem="4di-Em-dT4" secondAttribute="bottom" id="VWV-ph-e8x"/>
+                                <constraint firstItem="4di-Em-dT4" firstAttribute="leading" secondItem="CQn-QS-YoJ" secondAttribute="leading" id="qdQ-pO-5gR"/>
+                            </constraints>
+                        </view>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="CommentCell" textLabel="a1p-af-m2r" detailTextLabel="KxJ-Oh-Ju8" style="IBUITableViewCellStyleSubtitle" id="gWx-Ba-4ra">
                                 <rect key="frame" x="0.0" y="133" width="375" height="44"/>
@@ -426,8 +468,11 @@
                     </navigationItem>
                     <connections>
                         <outlet property="authorLabel" destination="uQC-8y-kuu" id="OBX-uv-64E"/>
+                        <outlet property="cancelButton" destination="7EI-gd-v6Q" id="L02-7F-Jw0"/>
                         <outlet property="imageView" destination="Q0L-w5-qUw" id="0v7-ZB-mgi"/>
                         <outlet property="imageViewAspectRatioConstraint" destination="y1B-iX-x3e" id="wIt-kh-Tzd"/>
+                        <outlet property="postButton" destination="jjX-Nl-WRJ" id="lK2-2l-iul"/>
+                        <outlet property="recordButton" destination="nfI-HL-Jpe" id="mnS-7R-Wga"/>
                         <outlet property="titleLabel" destination="jyy-BX-c2c" id="UEd-xO-ipC"/>
                     </connections>
                 </tableViewController>

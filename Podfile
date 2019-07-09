@@ -11,5 +11,6 @@ pod 'Firebase/Database'
 pod 'Firebase/Storage'
 pod 'Firebase/Auth'
 pod 'FirebaseUI/Google'
+pod 'Firebase/Facebook'
 
 end

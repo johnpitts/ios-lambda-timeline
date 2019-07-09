@@ -24,6 +24,8 @@ class ImagePostCollectionViewCell: UICollectionViewCell {
     
     func updateViews() {
         guard let post = post else { return }
+        
+        // hide the title if its an audio comment, otherwise provide a play button
     
         titleLabel.text = post.title
         authorLabel.text = post.author.displayName
