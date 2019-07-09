@@ -25,11 +25,12 @@ class Comment: FirebaseConvertible, Equatable {
         self.timestamp = timestamp
     }
     
+    // Initialize a Comment using Firebase (who demands all dictionaries)...
     init?(dictionary: [String : Any]) {
         guard let text = dictionary[Comment.textKey] as? String,
             let authorDictionary = dictionary[Comment.author] as? [String: Any],
             let author = Author(dictionary: authorDictionary),
-            let timestampTimeInterval = dictionary[Comment.timestampKey] as? TimeInterval else { return nil }
+            let timestampTimeInterval = dictionary[Comment.timestampKey] as? TimeInterval else { return nil } //TimeInterval is typealias for Double
         
         self.text = text
         self.author = author

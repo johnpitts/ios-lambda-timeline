@@ -11,12 +11,56 @@ import Photos
 
 class ImagePostViewController: ShiftableViewController {
     
+    // This file will contain all the filtering, then send the filtered result to the Collection View controller
+    
+    
+    
+    var postController: PostController!
+    var post: Post?
+    var imageData: Data?
+    
+    private let filterPETonal = CIFilter(name: "CIPhotoEffectTonal")
+    
+    @IBOutlet weak var imageView: UIImageView!
+    @IBOutlet weak var titleTextField: UITextField!
+    @IBOutlet weak var chooseImageButton: UIButton!
+    @IBOutlet weak var imageHeightConstraint: NSLayoutConstraint!
+    @IBOutlet weak var postButton: UIBarButtonItem!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         setImageViewHeight(with: 1.0)
         
         updateViews()
+    }
+    
+    @IBAction func chooseImage(_ sender: Any) {
+        
+        let authorizationStatus = PHPhotoLibrary.authorizationStatus()
+        
+        switch authorizationStatus {
+        case .authorized:
+            presentImagePickerController()
+        case .notDetermined:
+            
+            PHPhotoLibrary.requestAuthorization { (status) in
+                
+                guard status == .authorized else {
+                    NSLog("User did not authorize access to the photo library")
+                    self.presentInformationalAlertController(title: "Error", message: "In order to access the photo library, you must allow this application access to it.")
+                    return
+                }
+                self.presentImagePickerController()
+            }
+            
+        case .denied:
+            self.presentInformationalAlertController(title: "Error", message: "In order to access the photo library, you must allow this application access to it.")
+        case .restricted:
+            self.presentInformationalAlertController(title: "Error", message: "Unable to access the photo library. Your device's restrictions do not allow access.")
+            
+        }
+        presentImagePickerController()
     }
     
     func updateViews() {
@@ -52,14 +96,26 @@ class ImagePostViewController: ShiftableViewController {
         present(imagePicker, animated: true, completion: nil)
     }
     
+    @IBAction func tonalButtonTapped(_ sender: Any) {
+        
+        filter?.setValue(ciImage, forKey: "inputImage")
+        
+        guard let outputCIImage = filter?.outputImage else { return image }
+        
+        // render the image
+        guard let outputCGImage = context.createCGImage(outputCIImage, from: outputCIImage.extent) else { return image }
+        return UIImage(cgImage: outputCGImage)
+    }
+    
+    
     @IBAction func createPost(_ sender: Any) {
         
         view.endEditing(true)
         
         guard let imageData = imageView.image?.jpegData(compressionQuality: 0.1),
             let title = titleTextField.text, title != "" else {
-            presentInformationalAlertController(title: "Uh-oh", message: "Make sure that you add a photo and a caption before posting.")
-            return
+                presentInformationalAlertController(title: "Uh-oh", message: "Make sure that you add a photo and a caption before posting.")
+                return
         }
         
         postController.createPost(with: title, ofType: .image, mediaData: imageData, ratio: imageView.image?.ratio) { (success) in
@@ -76,34 +132,6 @@ class ImagePostViewController: ShiftableViewController {
         }
     }
     
-    @IBAction func chooseImage(_ sender: Any) {
-        
-        let authorizationStatus = PHPhotoLibrary.authorizationStatus()
-        
-        switch authorizationStatus {
-        case .authorized:
-            presentImagePickerController()
-        case .notDetermined:
-            
-            PHPhotoLibrary.requestAuthorization { (status) in
-                
-                guard status == .authorized else {
-                    NSLog("User did not authorize access to the photo library")
-                    self.presentInformationalAlertController(title: "Error", message: "In order to access the photo library, you must allow this application access to it.")
-                    return
-                }
-                
-                self.presentImagePickerController()
-            }
-            
-        case .denied:
-            self.presentInformationalAlertController(title: "Error", message: "In order to access the photo library, you must allow this application access to it.")
-        case .restricted:
-            self.presentInformationalAlertController(title: "Error", message: "Unable to access the photo library. Your device's restrictions do not allow access.")
-            
-        }
-        presentImagePickerController()
-    }
     
     func setImageViewHeight(with aspectRatio: CGFloat) {
         
@@ -111,17 +139,11 @@ class ImagePostViewController: ShiftableViewController {
         
         view.layoutSubviews()
     }
-    
-    var postController: PostController!
-    var post: Post?
-    var imageData: Data?
-    
-    @IBOutlet weak var imageView: UIImageView!
-    @IBOutlet weak var titleTextField: UITextField!
-    @IBOutlet weak var chooseImageButton: UIButton!
-    @IBOutlet weak var imageHeightConstraint: NSLayoutConstraint!
-    @IBOutlet weak var postButton: UIBarButtonItem!
 }
+
+
+
+
 
 extension ImagePostViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     

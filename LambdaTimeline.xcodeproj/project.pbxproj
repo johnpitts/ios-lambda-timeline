@@ -158,10 +158,10 @@
 		46A0366B21700F6100E7FF73 /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				46A0366C2170158900E7FF73 /* SignInViewController.swift */,
-				46A0366921700F5100E7FF73 /* PostsCollectionViewController.swift */,
 				46CFE6F421707D0000E7FF73 /* ImagePostViewController.swift */,
+				46A0366921700F5100E7FF73 /* PostsCollectionViewController.swift */,
 				46D571F72173FC2700E7FF73 /* ImagePostDetailTableViewController.swift */,
+				46A0366C2170158900E7FF73 /* SignInViewController.swift */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
