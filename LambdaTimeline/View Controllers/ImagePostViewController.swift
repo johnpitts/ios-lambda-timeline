@@ -13,19 +13,30 @@ class ImagePostViewController: ShiftableViewController {
     
     // This file will contain all the filtering, then send the filtered result to the Collection View controller
     
-    
+    var originalImage: UIImage? {
+        didSet {
+            updateImage()
+        }
+    }
+    private let context = CIContext(options: nil)
     
     var postController: PostController!
     var post: Post?
     var imageData: Data?
-    
-    private let filterPETonal = CIFilter(name: "CIPhotoEffectTonal")
     
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var titleTextField: UITextField!
     @IBOutlet weak var chooseImageButton: UIButton!
     @IBOutlet weak var imageHeightConstraint: NSLayoutConstraint!
     @IBOutlet weak var postButton: UIBarButtonItem!
+    
+    private func updateImage() {
+        if let originalImage = originalImage {
+            imageView.image = originalImage
+        } else {
+            imageView.image = nil //would rather use UIImage(data: imageData) but not going to trouble of unwrapping bc this will be little-used
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -98,13 +109,30 @@ class ImagePostViewController: ShiftableViewController {
     
     @IBAction func tonalButtonTapped(_ sender: Any) {
         
-        filter?.setValue(ciImage, forKey: "inputImage")
+        guard let image = imageView.image,
+        let filterPETonal = CIFilter(name: "CIPhotoEffectTonal") else { return }  // might want a print statement in the else here
+
+        originalImage = imageRender(byFiltering: image, with: filterPETonal)
+        
+        //updateImage() doesn't need to be called bc originalImage is a property observer which calls updateImage()
+
+    }
+    
+    
+    private func imageRender(byFiltering image: UIImage, with filter: CIFilter) -> UIImage {
+        // let ciImage = originalImage?.ciImage Won't work from the Photo Library!
+        
+        guard let cgImage = image.flattened.cgImage else { return image }
+        let ciImage = CIImage(cgImage: cgImage)
+        
+        filter?.setValue(ciImage, forKey: "inputImage")  // key MUST match the API, so refer to developer.apple Core Image
         
         guard let outputCIImage = filter?.outputImage else { return image }
         
         // render the image
         guard let outputCGImage = context.createCGImage(outputCIImage, from: outputCIImage.extent) else { return image }
         return UIImage(cgImage: outputCGImage)
+        
     }
     
     
