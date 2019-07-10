@@ -159,7 +159,7 @@
                                         <rect key="frame" x="8" y="413" width="359" height="182"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" spacing="100" translatesAutoresizingMaskIntoConstraints="NO" id="tWY-eg-ETQ">
-                                                <rect key="frame" x="0.0" y="0.0" width="323" height="30"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="327" height="30"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="attribute 1" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QB9-Xi-6ii">
                                                         <rect key="frame" x="0.0" y="0.0" width="77" height="30"/>
@@ -168,12 +168,12 @@
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="Gyd-bK-ls9">
-                                                        <rect key="frame" x="175" y="0.0" width="150" height="31"/>
+                                                        <rect key="frame" x="175" y="0.0" width="154" height="31"/>
                                                     </slider>
                                                 </subviews>
                                             </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" spacing="100" translatesAutoresizingMaskIntoConstraints="NO" id="fBw-v9-8Y7">
-                                                <rect key="frame" x="0.0" y="38" width="329.5" height="30"/>
+                                                <rect key="frame" x="0.0" y="38" width="333.5" height="30"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="attribute 2" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pOP-NZ-fGC">
                                                         <rect key="frame" x="0.0" y="0.0" width="79.5" height="30"/>
@@ -182,12 +182,12 @@
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="sba-Gh-D4k">
-                                                        <rect key="frame" x="177.5" y="0.0" width="154" height="31"/>
+                                                        <rect key="frame" x="177.5" y="0.0" width="158" height="31"/>
                                                     </slider>
                                                 </subviews>
                                             </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" spacing="100" translatesAutoresizingMaskIntoConstraints="NO" id="Cn8-7d-ORX">
-                                                <rect key="frame" x="0.0" y="76" width="334" height="30"/>
+                                                <rect key="frame" x="0.0" y="76" width="338" height="30"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="attribute 3" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nVD-v9-w6q">
                                                         <rect key="frame" x="0.0" y="0.0" width="80" height="30"/>
@@ -196,7 +196,7 @@
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="fdf-XP-xgW">
-                                                        <rect key="frame" x="178" y="0.0" width="158" height="31"/>
+                                                        <rect key="frame" x="178" y="0.0" width="162" height="31"/>
                                                     </slider>
                                                 </subviews>
                                             </stackView>
@@ -469,11 +469,19 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Title" id="ZF5-WY-6Y2">
-                        <barButtonItem key="rightBarButtonItem" title="Comment" id="xrT-JD-ey3">
-                            <connections>
-                                <action selector="createComment:" destination="OyM-8q-Icp" id="2IY-cQ-DLq"/>
-                            </connections>
-                        </barButtonItem>
+                        <rightBarButtonItems>
+                            <barButtonItem title="Comment" id="xrT-JD-ey3">
+                                <connections>
+                                    <action selector="createComment:" destination="OyM-8q-Icp" id="2IY-cQ-DLq"/>
+                                </connections>
+                            </barButtonItem>
+                            <barButtonItem title="Video" id="bJg-0l-OeA">
+                                <color key="tintColor" red="0.88821648320000002" green="0.32062744069999999" blue="0.31437832110000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <connections>
+                                    <segue destination="cXG-g3-a0S" kind="show" identifier="ShowCam" id="hmQ-P4-xwf"/>
+                                </connections>
+                            </barButtonItem>
+                        </rightBarButtonItems>
                     </navigationItem>
                     <connections>
                         <outlet property="authorLabel" destination="uQC-8y-kuu" id="OBX-uv-64E"/>
@@ -489,5 +497,48 @@
             </objects>
             <point key="canvasLocation" x="1968.8" y="472.71364317841085"/>
         </scene>
+        <!--Camera View Controller-->
+        <scene sceneID="DOE-O9-AMH">
+            <objects>
+                <viewController id="cXG-g3-a0S" customClass="CameraViewController" customModule="LambdaTimeline" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="rhQ-T2-HoH">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GPh-5k-dDa" customClass="CameraPreviewView" customModule="LambdaTimeline" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eiv-et-FF4">
+                                <rect key="frame" x="129" y="434" width="116" height="116"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="100" id="GpJ-Z7-XNs"/>
+                                    <constraint firstAttribute="width" constant="100" id="jIh-j4-hb6"/>
+                                </constraints>
+                                <color key="tintColor" red="0.88821648320000002" green="0.32062744069999999" blue="0.31437832110000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <state key="normal" image="Record"/>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="GPh-5k-dDa" firstAttribute="top" secondItem="573-R9-fYt" secondAttribute="top" id="0dn-La-m1o"/>
+                            <constraint firstItem="GPh-5k-dDa" firstAttribute="leading" secondItem="573-R9-fYt" secondAttribute="leading" id="8DS-ml-A64"/>
+                            <constraint firstItem="GPh-5k-dDa" firstAttribute="bottom" secondItem="573-R9-fYt" secondAttribute="bottom" id="Ilv-Tg-ryO"/>
+                            <constraint firstItem="GPh-5k-dDa" firstAttribute="trailing" secondItem="573-R9-fYt" secondAttribute="trailing" id="edy-dr-kj6"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="573-R9-fYt"/>
+                    </view>
+                    <connections>
+                        <outlet property="cameraView" destination="GPh-5k-dDa" id="vsg-VL-0K3"/>
+                        <outlet property="recordButton" destination="eiv-et-FF4" id="ZS5-Xg-fcK"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="GHS-Fc-m4c" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2709.5999999999999" y="472.71364317841085"/>
+        </scene>
     </scenes>
+    <resources>
+        <image name="Record" width="116" height="116"/>
+    </resources>
 </document>
