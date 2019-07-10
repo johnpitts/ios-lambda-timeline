@@ -70,9 +70,11 @@ class ImagePostDetailTableViewController: UITableViewController {
         
         let addCommentAction = UIAlertAction(title: "Add Comment", style: .default) { (_) in
             
-            guard let commentText = commentTextField?.text else { return }
+            guard let commentText = commentTextField?.text,
+                let commentAudio = self.recorder.fileURL
+            else { return }
             
-            self.postController.addComment(with: commentText, to: &self.post!)
+            self.postController.addComment(with: commentText, with: commentAudio, to: &self.post!)
             
             DispatchQueue.main.async {
                 self.tableView.reloadData()
@@ -98,6 +100,9 @@ class ImagePostDetailTableViewController: UITableViewController {
         
         cell.textLabel?.text = comment?.text
         cell.detailTextLabel?.text = comment?.author.displayName
+        
+        // create cell object as play button with audio comment attached to it
+        
         
         return cell
     }
