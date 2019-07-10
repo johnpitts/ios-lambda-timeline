@@ -22,10 +22,25 @@ class ImagePostDetailTableViewController: UITableViewController {
     var postController: PostController!
     var imageData: Data?
     
+    lazy private var recorder = Recorder()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         updateViews()
     }
+    
+    @IBAction func recordButtonTapped(_ sender: Any) {
+        
+        recorder.toggleRecording()
+        
+    }
+    @IBAction func cancelButtonTapped(_ sender: Any) {
+        
+    }
+    @IBAction func postButtonTapped(_ sender: Any) {
+        
+    }
+    
     
     func updateViews() {
         

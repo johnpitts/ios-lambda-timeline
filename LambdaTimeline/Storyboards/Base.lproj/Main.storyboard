@@ -396,12 +396,18 @@
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nfI-HL-Jpe">
                                             <rect key="frame" x="0.0" y="0.0" width="61" height="30"/>
                                             <state key="normal" title="RECORD"/>
+                                            <connections>
+                                                <action selector="recordButtonTapped:" destination="OyM-8q-Icp" eventType="touchUpInside" id="ebe-Ze-ET5"/>
+                                            </connections>
                                         </button>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7EI-gd-v6Q">
                                             <rect key="frame" x="69" y="0.0" width="45" height="30"/>
                                             <state key="normal" title="cancel">
                                                 <color key="titleColor" red="0.88821648320000002" green="0.32062744069999999" blue="0.31437832110000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                             </state>
+                                            <connections>
+                                                <action selector="cancelButtonTapped:" destination="OyM-8q-Icp" eventType="touchUpInside" id="YkF-Ec-Xth"/>
+                                            </connections>
                                         </button>
                                         <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jjX-Nl-WRJ">
                                             <rect key="frame" x="122" y="0.0" width="253" height="30"/>
@@ -409,6 +415,9 @@
                                             <state key="normal" title="POST">
                                                 <color key="titleColor" red="0.246068645" green="0.68573416099999995" blue="0.23669699199999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                             </state>
+                                            <connections>
+                                                <action selector="postButtonTapped:" destination="OyM-8q-Icp" eventType="touchUpInside" id="NJV-nw-GgA"/>
+                                            </connections>
                                         </button>
                                     </subviews>
                                 </stackView>
