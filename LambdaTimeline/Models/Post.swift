@@ -13,7 +13,44 @@ enum MediaType: String {
     case image
 }
 
-struct Post {
+class Post {
+    
+    //PROPERTIES of Post
+    
+    var mediaURL: URL
+    let mediaType: MediaType
+    let author: Author
+    let timestamp: Date
+    var comments: [Comment]
+    var id: String?
+    var ratio: CGFloat?
+    var title: String? {
+        return comments.first?.text
+    }
+    
+    var dictionaryRepresentation: [String : Any] {
+        var dict: [String: Any] = [Post.mediaKey: mediaURL.absoluteString,
+                                   Post.mediaTypeKey: mediaType.rawValue,
+                                   Post.commentsKey: comments.map({ $0.dictionaryRepresentation }),
+                                   Post.authorKey: author.dictionaryRepresentation,
+                                   Post.timestampKey: timestamp.timeIntervalSince1970]
+        guard let ratio = self.ratio else { return dict }
+        dict[Post.ratioKey] = ratio
+        return dict
+    }
+    
+    
+    //KEYS:
+    
+    static private let mediaKey = "media"
+    static private let ratioKey = "ratio"
+    static private let mediaTypeKey = "mediaType"
+    static private let authorKey = "author"
+    static private let commentsKey = "comments"
+    static private let timestampKey = "timestamp"
+    static private let idKey = "id"
+    
+    // INITIALIZERS:
     
     init(title: String, mediaURL: URL, ratio: CGFloat? = nil, author: Author, timestamp: Date = Date()) {
         self.mediaURL = mediaURL
@@ -43,37 +80,5 @@ struct Post {
         self.id = id
     }
     
-    var dictionaryRepresentation: [String : Any] {
-        var dict: [String: Any] = [Post.mediaKey: mediaURL.absoluteString,
-                Post.mediaTypeKey: mediaType.rawValue,
-                Post.commentsKey: comments.map({ $0.dictionaryRepresentation }),
-                Post.authorKey: author.dictionaryRepresentation,
-                Post.timestampKey: timestamp.timeIntervalSince1970]
-        
-        guard let ratio = self.ratio else { return dict }
-        
-        dict[Post.ratioKey] = ratio
-        
-        return dict
-    }
     
-    var mediaURL: URL
-    let mediaType: MediaType
-    let author: Author
-    let timestamp: Date
-    var comments: [Comment]
-    var id: String?
-    var ratio: CGFloat?
-    
-    var title: String? {
-        return comments.first?.text
-    }
-    
-    static private let mediaKey = "media"
-    static private let ratioKey = "ratio"
-    static private let mediaTypeKey = "mediaType"
-    static private let authorKey = "author"
-    static private let commentsKey = "comments"
-    static private let timestampKey = "timestamp"
-    static private let idKey = "id"
 }
