@@ -69,6 +69,7 @@ class ImagePostViewController: ShiftableViewController {
             self.presentInformationalAlertController(title: "Error", message: "In order to access the photo library, you must allow this application access to it.")
         case .restricted:
             self.presentInformationalAlertController(title: "Error", message: "Unable to access the photo library. Your device's restrictions do not allow access.")
+        default: print("whoopsies, authorization status needs another condition"); break
             
         }
         presentImagePickerController()

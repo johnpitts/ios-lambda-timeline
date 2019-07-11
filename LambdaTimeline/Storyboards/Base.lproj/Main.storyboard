@@ -4,6 +4,7 @@
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="Stack View standard spacing" minToolsVersion="9.0"/>
@@ -159,7 +160,7 @@
                                         <rect key="frame" x="8" y="413" width="359" height="182"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" spacing="100" translatesAutoresizingMaskIntoConstraints="NO" id="tWY-eg-ETQ">
-                                                <rect key="frame" x="0.0" y="0.0" width="327" height="30"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="331" height="30"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="attribute 1" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QB9-Xi-6ii">
                                                         <rect key="frame" x="0.0" y="0.0" width="77" height="30"/>
@@ -168,12 +169,12 @@
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="Gyd-bK-ls9">
-                                                        <rect key="frame" x="175" y="0.0" width="154" height="31"/>
+                                                        <rect key="frame" x="175" y="0.0" width="158" height="31"/>
                                                     </slider>
                                                 </subviews>
                                             </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" spacing="100" translatesAutoresizingMaskIntoConstraints="NO" id="fBw-v9-8Y7">
-                                                <rect key="frame" x="0.0" y="38" width="333.5" height="30"/>
+                                                <rect key="frame" x="0.0" y="38" width="337.5" height="30"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="attribute 2" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pOP-NZ-fGC">
                                                         <rect key="frame" x="0.0" y="0.0" width="79.5" height="30"/>
@@ -182,12 +183,12 @@
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="sba-Gh-D4k">
-                                                        <rect key="frame" x="177.5" y="0.0" width="158" height="31"/>
+                                                        <rect key="frame" x="177.5" y="0.0" width="162" height="31"/>
                                                     </slider>
                                                 </subviews>
                                             </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" spacing="100" translatesAutoresizingMaskIntoConstraints="NO" id="Cn8-7d-ORX">
-                                                <rect key="frame" x="0.0" y="76" width="338" height="30"/>
+                                                <rect key="frame" x="0.0" y="76" width="342" height="30"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="attribute 3" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nVD-v9-w6q">
                                                         <rect key="frame" x="0.0" y="0.0" width="80" height="30"/>
@@ -196,7 +197,7 @@
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="fdf-XP-xgW">
-                                                        <rect key="frame" x="178" y="0.0" width="162" height="31"/>
+                                                        <rect key="frame" x="178" y="0.0" width="166" height="31"/>
                                                     </slider>
                                                 </subviews>
                                             </stackView>
@@ -510,7 +511,7 @@
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eiv-et-FF4">
-                                <rect key="frame" x="129" y="434" width="116" height="116"/>
+                                <rect key="frame" x="129" y="283.5" width="116" height="100"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="100" id="GpJ-Z7-XNs"/>
                                     <constraint firstAttribute="width" constant="100" id="jIh-j4-hb6"/>
@@ -525,6 +526,7 @@
                             <constraint firstItem="GPh-5k-dDa" firstAttribute="leading" secondItem="573-R9-fYt" secondAttribute="leading" id="8DS-ml-A64"/>
                             <constraint firstItem="GPh-5k-dDa" firstAttribute="bottom" secondItem="573-R9-fYt" secondAttribute="bottom" id="Ilv-Tg-ryO"/>
                             <constraint firstItem="GPh-5k-dDa" firstAttribute="trailing" secondItem="573-R9-fYt" secondAttribute="trailing" id="edy-dr-kj6"/>
+                            <constraint firstItem="eiv-et-FF4" firstAttribute="centerY" secondItem="rhQ-T2-HoH" secondAttribute="centerY" id="jfy-bz-m9w"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="573-R9-fYt"/>
                     </view>

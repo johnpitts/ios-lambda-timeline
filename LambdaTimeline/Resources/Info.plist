@@ -10,8 +10,6 @@
 	<string>$(PRODUCT_BUNDLE_IDENTIFIER)</string>
 	<key>CFBundleInfoDictionaryVersion</key>
 	<string>6.0</string>
-	<key>CFBundleName</key>
-	<string>$(PRODUCT_NAME)</string>
 	<key>CFBundlePackageType</key>
 	<string>APPL</string>
 	<key>CFBundleShortVersionString</key>
@@ -31,6 +29,10 @@
 	<string>1</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
+	<key>NSCameraUsageDescription</key>
+	<string>$(PRODUCT_NAME) usage of camera</string>
+	<key>NSMicrophoneUsageDescription</key>
+	<string>$(PRODUCT_NAME) useage of microphone</string>
 	<key>NSPhotoLibraryUsageDescription</key>
 	<string>In order to allow you to add photos to posts</string>
 	<key>UILaunchStoryboardName</key>
